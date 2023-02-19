@@ -22,7 +22,7 @@ pipeline {
         stage('Build docker image') {
            steps {
                script {         
-                 def customImage = docker.build('bops866/cloudgenesis', "./docker")
+                 def customImage = docker.build('bops866/petclinic', "./docker")
                  docker.withRegistry('https://cloudfreak.azurecr.io', 'acr-demo') {
                  customImage.push("${env.BUILD_NUMBER}")
                  }                     
